@@ -27,9 +27,16 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.08, rootMargin: "0px 0px -5% 0px" }
     );
-    reveals.forEach((el) => io.observe(el));
+    reveals.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.95) {
+        el.classList.add("in");
+      } else {
+        io.observe(el);
+      }
+    });
   } else {
     reveals.forEach((el) => el.classList.add("in"));
   }

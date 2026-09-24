@@ -241,7 +241,7 @@ p { margin: 0 0 1rem; }
   z-index: -2;
   background:
     linear-gradient(180deg, rgba(7, 28, 61, 0.35) 0%, rgba(7, 28, 61, 0.78) 55%, rgba(7, 28, 61, 0.92) 100%),
-    url("../assets/hero.jpg") center 40% / cover no-repeat;
+    url("../assets/chicks-hatchery.jpg") center 45% / cover no-repeat;
   transform: scale(1.04);
   animation: heroDrift 18s ease-in-out infinite alternate;
 }
@@ -348,32 +348,40 @@ p { margin: 0 0 1rem; }
   min-height: 320px;
   border-radius: var(--radius);
   background:
-    linear-gradient(160deg, rgba(11, 42, 92, 0.15), rgba(245, 197, 24, 0.18)),
-    url("../assets/chicks.jpg") center / cover no-repeat;
+    linear-gradient(160deg, rgba(11, 42, 92, 0.12), rgba(245, 197, 24, 0.12)),
+    url("../assets/chicks-close.jpg") center / cover no-repeat;
   box-shadow: var(--shadow);
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .visual-panel.farm {
   background-image:
-    linear-gradient(160deg, rgba(11, 42, 92, 0.15), rgba(245, 197, 24, 0.18)),
-    url("../assets/farm.jpg");
+    linear-gradient(160deg, rgba(11, 42, 92, 0.1), rgba(245, 197, 24, 0.1)),
+    url("../assets/cage-h-type.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .visual-panel.eggs {
   background-image:
-    linear-gradient(160deg, rgba(11, 42, 92, 0.15), rgba(245, 197, 24, 0.18)),
-    url("../assets/eggs.jpg");
+    linear-gradient(160deg, rgba(11, 42, 92, 0.1), rgba(245, 197, 24, 0.1)),
+    url("../assets/chicks-isa-close.jpg");
   background-size: cover;
   background-position: center;
 }
 
 .visual-panel.equipment {
   background-image:
-    linear-gradient(160deg, rgba(11, 42, 92, 0.15), rgba(245, 197, 24, 0.18)),
-    url("../assets/equipment.jpg");
+    linear-gradient(160deg, rgba(11, 42, 92, 0.1), rgba(245, 197, 24, 0.1)),
+    url("../assets/equipment-drinkers.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.visual-panel.cage-a {
+  background-image:
+    linear-gradient(160deg, rgba(11, 42, 92, 0.08), rgba(245, 197, 24, 0.08)),
+    url("../assets/cage-a-type.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -460,33 +468,64 @@ p { margin: 0 0 1rem; }
 .catalog-thumb {
   height: 110px;
   border-radius: 1rem;
-  background:
-    linear-gradient(135deg, rgba(11, 42, 92, 0.25), rgba(245, 197, 24, 0.2)),
-    url("../assets/chicks.jpg") center / cover no-repeat;
+  overflow: hidden;
+  background: #d7e4f2 center / cover no-repeat;
 }
 
-.catalog-thumb.t2 {
-  background-image:
-    linear-gradient(135deg, rgba(11, 42, 92, 0.25), rgba(245, 197, 24, 0.2)),
-    url("../assets/eggs.jpg");
-  background-size: cover;
-  background-position: center;
+.catalog-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.catalog-thumb.t3 {
-  background-image:
-    linear-gradient(135deg, rgba(11, 42, 92, 0.25), rgba(245, 197, 24, 0.2)),
-    url("../assets/farm.jpg");
-  background-size: cover;
-  background-position: center;
+.catalog-thumb.t-broiler { background-image: url("../assets/chicks-close.jpg"); }
+.catalog-thumb.t-layer { background-image: url("../assets/chicks-isa-close.jpg"); }
+.catalog-thumb.t-cage-a { background-image: url("../assets/cage-a-type.jpg"); }
+.catalog-thumb.t-cage-h { background-image: url("../assets/cage-h-type.jpg"); }
+.catalog-thumb.t-drinkers { background-image: url("../assets/equipment-drinkers.jpg"); }
+.catalog-thumb.t-batch { background-image: url("../assets/chicks-batch.jpg"); }
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  margin-top: 1.5rem;
 }
 
-.catalog-thumb.t4 {
-  background-image:
-    linear-gradient(135deg, rgba(11, 42, 92, 0.25), rgba(245, 197, 24, 0.2)),
-    url("../assets/equipment.jpg");
-  background-size: cover;
-  background-position: center;
+.photo-grid figure {
+  margin: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: #0b2a5c;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-grid figcaption {
+  padding: 0.65rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy);
+  background: var(--white);
+}
+
+.photo-grid.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 860px) {
+  .photo-grid,
+  .photo-grid.three {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-grid img { height: 200px; }
 }
 
 /* Contact form as interactive surface */
@@ -609,8 +648,24 @@ textarea { min-height: 140px; resize: vertical; }
   padding: 3.5rem 0 2.5rem;
   background:
     linear-gradient(120deg, rgba(7, 28, 61, 0.88), rgba(19, 64, 122, 0.82)),
-    url("../assets/farm.jpg") center 35% / cover no-repeat;
+    url("../assets/chicks-batch.jpg") center 40% / cover no-repeat;
   color: var(--white);
+}
+
+.page-hero.products {
+  background-image:
+    linear-gradient(120deg, rgba(7, 28, 61, 0.88), rgba(19, 64, 122, 0.82)),
+    url("../assets/cage-a-type.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.page-hero.services {
+  background-image:
+    linear-gradient(120deg, rgba(7, 28, 61, 0.88), rgba(19, 64, 122, 0.82)),
+    url("../assets/chicks-floor.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .page-hero h1 { color: var(--white); }
