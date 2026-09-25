@@ -308,7 +308,7 @@ p { margin: 0 0 1rem; }
   margin-bottom: 0.35rem;
 }
 
-.muted { color: var(--mute); }
+.muted { color: #3d4f66; }
 
 .band {
   background: linear-gradient(135deg, var(--navy-deep), var(--navy-mid));
@@ -330,8 +330,35 @@ p { margin: 0 0 1rem; }
 
 .band .wrap { position: relative; }
 
-.band h2, .band p { color: var(--white); }
-.band .muted { color: rgba(255, 255, 255, 0.75); }
+.band h2,
+.band h3,
+.band p {
+  color: var(--white);
+}
+
+.band .muted {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.band .value h3 {
+  color: var(--yellow);
+}
+
+.band .script {
+  color: var(--yellow-soft);
+}
+
+.band .catalog-item {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.band .catalog-item:first-child {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+.band strong {
+  color: var(--white);
+}
 
 /* Product / service lists — not card-heavy */
 .split {
@@ -364,10 +391,10 @@ p { margin: 0 0 1rem; }
 
 .visual-panel.eggs {
   background-image:
-    linear-gradient(160deg, rgba(11, 42, 92, 0.1), rgba(245, 197, 24, 0.1)),
-    url("../assets/chicks-isa-close.jpg");
+    linear-gradient(160deg, rgba(11, 42, 92, 0.08), rgba(245, 197, 24, 0.08)),
+    url("../assets/isa-brown-hen.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center 30%;
 }
 
 .visual-panel.equipment {
@@ -449,6 +476,8 @@ p { margin: 0 0 1rem; }
 
 .value h3 { color: var(--navy); }
 
+.band .value h3 { color: var(--yellow); }
+
 .catalog {
   display: grid;
   gap: 0;
@@ -479,11 +508,34 @@ p { margin: 0 0 1rem; }
 }
 
 .catalog-thumb.t-broiler { background-image: url("../assets/chicks-close.jpg"); }
-.catalog-thumb.t-layer { background-image: url("../assets/chicks-isa-close.jpg"); }
+.catalog-thumb.t-layer { background-image: url("../assets/isa-brown-hen.jpg"); background-position: center 25%; }
 .catalog-thumb.t-cage-a { background-image: url("../assets/cage-a-type.jpg"); }
 .catalog-thumb.t-cage-h { background-image: url("../assets/cage-h-type.jpg"); }
 .catalog-thumb.t-drinkers { background-image: url("../assets/equipment-drinkers.jpg"); }
 .catalog-thumb.t-batch { background-image: url("../assets/chicks-batch.jpg"); }
+
+.feature-photo {
+  margin: 1.5rem 0 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: #0b2a5c;
+}
+
+.feature-photo img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+}
+
+.feature-photo figcaption {
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  background: var(--white);
+}
 
 .photo-grid {
   display: grid;
@@ -671,11 +723,10 @@ textarea { min-height: 140px; resize: vertical; }
 .page-hero h1 { color: var(--white); }
 .page-hero p { color: rgba(255, 255, 255, 0.88); max-width: 36rem; }
 
-/* Reveal motion */
+/* Reveal motion — keep content visible (no fade-to-invisible) */
 .reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  opacity: 1;
+  transform: none;
 }
 
 .reveal.in {
