@@ -449,17 +449,22 @@ p { margin: 0 0 1rem; }
 }
 
 .pill {
-  padding: 0.4rem 0.8rem;
-  border-radius: 999px;
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.4rem;
   background: rgba(11, 42, 92, 0.08);
   color: var(--navy);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.88rem;
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
 }
 
+/* Keep class for markup compatibility — same look as other tags (not a button) */
 .pill.yellow {
-  background: var(--yellow);
-  color: var(--navy-deep);
+  background: rgba(11, 42, 92, 0.08);
+  color: var(--navy);
 }
 
 /* Values / why — minimal separators, not card grid in hero sense */
